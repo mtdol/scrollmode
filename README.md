@@ -16,7 +16,9 @@ set rtp+=~/.vim/bundle/scrollmode
 Scroll mode allows you to walk up and down the file in the same way as the `<c-e>` and `<c-y>` keys  
 except it makes the behavior modal and accesible with just one hand.
 
-Note these keys can be remapped.
+Additionally the Cursor will be hidden when scroll mode is enabled.
+
+Use the following remappable keys to navigate within scroll mode
 
 By default use:
 * the `gl` key to toggle *scrollmode* on and off  
