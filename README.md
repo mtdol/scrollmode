@@ -77,7 +77,7 @@ g:ScrollMode_ScrollDownHardKeys
 ```
 For example if I want to use both `j` and `p` to move down I would set
 ```vimscript
-g:ScrollMode_ScrollDownKeys = ["j","p"]
+let g:ScrollMode_ScrollDownKeys = ["j","p"]
 ```
 
 Finally the scrolling speed can be changed via the following global variables:
