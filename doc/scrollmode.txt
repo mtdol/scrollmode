@@ -1,13 +1,14 @@
 *scrollmode.txt*	Version 1.0
 
------------------------------------------------------------------
-  __ __ /___\  ___   __    __  __   ________  __  ___  /___ /_____
- /  /  ||   | /   \ /     /    __  /\ /  \ /\ __ /   \ |   \|      
- \  |   |_ /    |   |     |       /  \    /  \  | | | ||   ||_____ 
-__/ \__ |  \-|  |  ||     |      /    \__/    \  \ _ / |   ||        
-________|_ _\_\ _ /_|____/|____//_____ \/ _____\__/_\__|__/_|_____        
--------------------------------------------------------------------
-
+>
+    -----------------------------------------------------------------
+      __ __ /___\  ___   __    __  __   ________  __  ___  /___ /_____
+     /  /  ||   | /   \ /     /    __  /\ /  \ /\ __ /   \ |   \|      
+     \  |   |_ /    |   |     |       /  \    /  \  | | | ||   ||_____ 
+    __/ \__ |  \-|  |  ||     |      /    \__/    \  \ _ / |   ||     
+    ________|_ _\_\ _ /_|____/|____//_____ \/ _____\__/_\__|__/_|_____
+    -------------------------------------------------------------------
+<
 ___________________________________________________________________________
 CONTENTS
 
@@ -27,7 +28,7 @@ distraction of the cursor.
 The plugin is modal and nature and adds something like a mode to vim that
 can be toggled on and off with a mapping to:
 >
-<Plug>ToggleScrollMode
+    <Plug>ToggleScrollMode
 <
 The default mapping is to `gl`
 
@@ -41,8 +42,8 @@ or any of `i`, `I`, `a`, `A`, `o`, or `O` while within scrollmode.
 To navigate while scrollmode is active use:~
     `k` to move the screen one line up
     `j` one line down
+    `l` three lines up
     `h` three lines down
-    `l` three lines up.
 These keys behave similarly to the `<c-e>` and `<c-y>` command and scroll the screen
 up regardless of the position of the cursor.
 
@@ -69,7 +70,7 @@ Configuration               *scrollmode-configuration*
 
 The mapping to use to toggle on and off the usage of scroll mode
 For example~
-`nmap {other mapping} <Plug>ToggleScrollMode`
+    `nmap {other mapping} <Plug>ToggleScrollMode`
 
 If you map anything to this, you will lose the `gl` mapping and you will
 have to remap to `gl` again.
@@ -86,21 +87,21 @@ as these can only be used from within scrollmode.
 
 These are the default values for this variable~
 >
-let g:ScrollMode_ExitScrollModeKeys = [
-    \ "<esc>",
-    \ "i",
-    \ "a",
-    \ "I",
-    \ "A",
-    \ "o",
-    \ "O",
-\]
+    let g:ScrollMode_ExitScrollModeKeys = [
+        \ "<esc>",
+        \ "i",
+        \ "a",
+        \ "I",
+        \ "A",
+        \ "o",
+        \ "O",
+    \]
 <
 
 ===========================================================================
                             *scrollmode-keys*
 
-These are the keys that are used to move in scrollmode:~
+These are the keys that are used to move in scrollmode:
 
 ---------------------------------------------------------------------------
     *g:ScrollMode_ScrollUpKeys*
@@ -110,7 +111,7 @@ scrollmode is enabled.
 
 Default:~
 >
-let g:ScrollMode_ScrollUpKeys = ["k"]
+    let g:ScrollMode_ScrollUpKeys = ["k"]
 <
 
 ---------------------------------------------------------------------------
@@ -121,7 +122,7 @@ scrollmode is enabled.
 
 Default:~
 >
-let g:ScrollMode_ScrollDownKeys = ["j"]
+    let g:ScrollMode_ScrollDownKeys = ["j"]
 <
 
 ---------------------------------------------------------------------------
@@ -132,7 +133,7 @@ scrollmode is enabled.
 
 Default:~
 >
-let g:ScrollMode_ScrollUpHardKeys = ["l"]
+    let g:ScrollMode_ScrollUpHardKeys = ["l"]
 <
 
 
@@ -144,14 +145,14 @@ scrollmode is enabled.
 
 Default:~
 >
-let g:ScrollMode_ScrollDownKeys = ["h"]
+    let g:ScrollMode_ScrollDownKeys = ["h"]
 <
 
 ===========================================================================
                                 *scrollmode-scrollspeed*
 
-These variables control the speed (lines per press) that the buffer is scrolled~
-when scroll mode is active:~
+These variables control the speed (lines per press) that the buffer is scrolled
+when scrollmode is active:
 
 ---------------------------------------------------------------------------
     *g:ScrollMode_UpScrollSpeed*
@@ -161,7 +162,7 @@ is pressed.
 
 Default:~
 >
-let g:ScrollMode_UpScrollSpeed = 1
+    let g:ScrollMode_UpScrollSpeed = 1
 <
 
 ---------------------------------------------------------------------------
@@ -172,7 +173,7 @@ is pressed.
 
 Default:~
 >
-let g:ScrollMode_DownScrollSpeed = 1
+    let g:ScrollMode_DownScrollSpeed = 1
 <
 
 ---------------------------------------------------------------------------
@@ -183,7 +184,7 @@ is pressed.
 
 Default:~
 >
-let g:ScrollMode_UpHardScrollSpeed = 3
+    let g:ScrollMode_UpHardScrollSpeed = 3
 <
 
 ---------------------------------------------------------------------------
@@ -194,7 +195,7 @@ hard key is pressed.
 
 Default:~
 >
-let g:ScrollMode_DownHardScrollSpeed = 3
+    let g:ScrollMode_DownHardScrollSpeed = 3
 <
 ___________________________________________________________________________
 vim:tw=78:sw=4:ts=8:ft=help:norl:
