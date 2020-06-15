@@ -1,1 +1,200 @@
-A Help file
+*scrollmode.txt*	Version 1.0
+
+-----------------------------------------------------------------
+  __ __ /___\  ___   __    __  __   ________  __  ___  /___ /_____
+ /  /  ||   | /   \ /     /    __  /\ /  \ /\ __ /   \ |   \|      
+ \  |   |_ /    |   |     |       /  \    /  \  | | | ||   ||_____ 
+__/ \__ |  \-|  |  ||     |      /    \__/    \  \ _ / |   ||        
+________|_ _\_\ _ /_|____/|____//_____ \/ _____\__/_\__|__/_|_____        
+-------------------------------------------------------------------
+
+___________________________________________________________________________
+CONTENTS
+
+    Introduction: |scrollmode-introduction|
+    Usage: |scrollmode-usage|
+    Configuration: |scrollmode-configuration|
+        - ScrollMode Keys: |scrollmode-keys|
+        - ScrollMode Scroll Speed: |scrollmode-scrollspeed|
+
+===========================================================================
+===========================================================================
+Introduction                    *scrollmode* *scrollmode-introduction*
+
+Scroll mode allows you to read files quickly and easily without the
+distraction of the cursor. 
+
+The plugin is modal and nature and adds something like a mode to vim that
+can be toggled on and off with a mapping to:
+>
+<Plug>ToggleScrollMode
+<
+The default mapping is to `gl`
+
+===========================================================================
+===========================================================================
+Usage                       *scrollmode-usage*
+
+By default, scrollmode is toggled with `gl` and is exited with `gl` again
+or any of `i`, `I`, `a`, `A`, `o`, or `O` while within scrollmode. 
+
+To navigate while scrollmode is active use:~
+    `k` to move the screen one line up
+    `j` one line down
+    `h` three lines down
+    `l` three lines up.
+These keys behave similarly to the `<c-e>` and `<c-y>` command and scroll the screen
+up regardless of the position of the cursor.
+
+When the plugin is enabled, the cursor is hidden and is then restored when
+scrollmode is disabled.
+
+In addition to the above default mappings, there are 3 commands:~
+
+    *:ToggleScrollMode*
+Toggles scrollmode on and off
+
+    *:EnableScrollMode*
+Enables scrollmode if disabled, otherwise does nothing
+
+    *:DisableScrollMode*
+Disables scrollmode if enabled, otherwise does nothing
+                       
+
+===========================================================================
+===========================================================================
+Configuration               *scrollmode-configuration*
+
+    *<Plug>ToggleScrollMode*
+
+The mapping to use to toggle on and off the usage of scroll mode
+For example~
+`nmap {other mapping} <Plug>ToggleScrollMode`
+
+If you map anything to this, you will lose the `gl` mapping and you will
+have to remap to `gl` again.
+---------------------------------------------------------------------------
+
+    *g:ScrollMode_ExitScrollModeKeys*
+
+These are the the keys that are used to exit scrollmode when it is enabled.
+For example if I hit `gl` to enable scrollmode, I could then hit `i` within
+scrollmode to toggle back to normal mode.
+
+Note: these mappings are different than the |<Plug>ToggleScrollMode| mapping
+as these can only be used from within scrollmode.
+
+These are the default values for this variable~
+>
+let g:ScrollMode_ExitScrollModeKeys = [
+    \ "<esc>",
+    \ "i",
+    \ "a",
+    \ "I",
+    \ "A",
+    \ "o",
+    \ "O",
+\]
+<
+
+===========================================================================
+                            *scrollmode-keys*
+
+These are the keys that are used to move in scrollmode:~
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_ScrollUpKeys*
+
+A list of strings representing keys that will make vim scroll up lightly when
+scrollmode is enabled.
+
+Default:~
+>
+let g:ScrollMode_ScrollUpKeys = ["k"]
+<
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_ScrollDownKeys*
+
+A list of strings representing keys that will make vim scroll down lightly when
+scrollmode is enabled.
+
+Default:~
+>
+let g:ScrollMode_ScrollDownKeys = ["j"]
+<
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_ScrollUpHardKeys*
+
+A list of strings representing keys that will make vim scroll up heavily when
+scrollmode is enabled.
+
+Default:~
+>
+let g:ScrollMode_ScrollUpHardKeys = ["l"]
+<
+
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_ScrollDownHardKeys*
+
+A list of strings representing keys that will make vim scroll down heavily when
+scrollmode is enabled.
+
+Default:~
+>
+let g:ScrollMode_ScrollDownKeys = ["h"]
+<
+
+===========================================================================
+                                *scrollmode-scrollspeed*
+
+These variables control the speed (lines per press) that the buffer is scrolled~
+when scroll mode is active:~
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_UpScrollSpeed*
+
+The number of lines that will be ascended in scrollmode when the scroll up key
+is pressed.
+
+Default:~
+>
+let g:ScrollMode_UpScrollSpeed = 1
+<
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_DownScrollSpeed*
+
+The number of lines that will be descended in scrollmode when the scroll down key
+is pressed.
+
+Default:~
+>
+let g:ScrollMode_DownScrollSpeed = 1
+<
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_UpHardScrollSpeed*
+
+The number of lines that will be ascended in scrollmode when the scroll up hard key
+is pressed.
+
+Default:~
+>
+let g:ScrollMode_UpHardScrollSpeed = 3
+<
+
+---------------------------------------------------------------------------
+    *g:ScrollMode_DownHardScrollSpeed*
+
+The number of lines that will be descended in scrollmode when the scroll down
+hard key is pressed.
+
+Default:~
+>
+let g:ScrollMode_DownHardScrollSpeed = 3
+<
+___________________________________________________________________________
+vim:tw=78:sw=4:ts=8:ft=help:norl:
